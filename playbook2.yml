@@ -6,7 +6,7 @@
   tasks:
     - name: Get Vault secret via API
       ansible.builtin.uri:
-        url: "{{ ansible_url }}"
+        url: "{{ vault_url }}"
         method: GET
         headers:
           X-Vault-Token: "{{ vault_token }}"
