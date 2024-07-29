@@ -1,0 +1,21 @@
+---
+- name: Yee
+  hosts: 127.0.0.1
+  tasks:
+
+  - name: Read kv2 secret
+    community.hashi_vault.vault_kv2_get:
+      engine_mount_point: ansible
+      path: test1
+      validate_certs: false
+      auth_method: userpass
+      username: ansible_awx
+      password: "{{ ansible_pw }}"
+      url: "{{ ansible_url }}"
+    register: response
+
+  - name: Display result
+    ansible.builtin.debug:
+      msg:
+        - "Secret: {{ response.secret }}"
+
