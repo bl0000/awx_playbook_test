@@ -13,6 +13,7 @@
         body: '{"data":{"key":"value"}}'
         body_format: json
         return_content: yes
+        validate_certs: false
       register: response
 
     - name: Display results
